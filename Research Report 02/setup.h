@@ -103,6 +103,32 @@ Graph* testGraphThree(){
     return newGraph;
 };
 
+Graph* testGraphFour(){
+    Vertex* a = createVertex("a");
+    Vertex* b = createVertex("b");
+    Vertex* c = createVertex("c");
+    Vertex* d = createVertex("d");
+    Vertex* e = createVertex("e");
+    Vertex* f = createVertex("f");
+    Vertex* z = createVertex("z");
+
+    Graph* newGraph = new Graph;
+
+    newGraph->push_back(createEdge(a, b));
+    newGraph->push_back(createEdge(b, c));
+    newGraph->push_back(createEdge(c, a));
+
+    newGraph->push_back(createEdge(z, a));
+
+    newGraph->push_back(createEdge(d, e));
+    newGraph->push_back(createEdge(e, f));
+    newGraph->push_back(createEdge(f, d));
+
+    newGraph->push_back(createEdge(z, d));
+
+    return newGraph;
+};
+
 void deleteAll(Graph* g){
     std::vector<Vertex*> memVector;
     for(int i=0; i<g->size(); i++){

@@ -1,11 +1,13 @@
 #include "myGraph.h"
 
+#include <utility>
+
 typedef std::vector<Edge*> Graph;
 typedef std::stack<Vertex*> Stack;
 
 Vertex* createVertex(std::string s){
-    Vertex* v = new Vertex;
-    v->word = s;
+    auto* v = new Vertex;
+    v->word = std::move(s);
     return v;
 }
 Edge* createEdge(Vertex *From, Vertex *To){
